@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String raca;
     private double valor;
@@ -20,7 +20,12 @@ public class Product {
         this.valor = valor;
         this.quantidade = quantidade;
     }
-
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
     /**
      * @return the raca
      */

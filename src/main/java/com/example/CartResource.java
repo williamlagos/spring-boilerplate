@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.Optional;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,12 @@ public class CartResource {
 
   @Autowired
   private CartRepository repository;
+
+  @Autowired
+  private ProductRepository products;
+
+  @Autowired
+  private CustomerRepository customers;
   /*
    * Construtor do CartResource, preparando uma lista de compras
    */
@@ -52,10 +59,12 @@ public class CartResource {
 
   @RequestMapping(value = "/compras/", 
   method = RequestMethod.POST)
-  public Cart criarCompra(@RequestBody Cart Cart) {
-    Product produto = Cart.getProduct();
-    Customer cliente = Cart.getCustomer();
-    return this.repository.save(new Cart(produto, cliente));
+  public Cart criarCompra(@RequestBody Cart cart) {
+    Product product = this.products.findById(
+      cart.getProduct().getId()).get();
+    Customer customer = this.customers.findById(
+      cart.getCustomer().getId()).get();
+    return this.repository.save(new Cart(product, customer));
   }
 
   @RequestMapping(value="/compras/{id}", 
