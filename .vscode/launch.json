@@ -2,7 +2,7 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-Main<java-getting-started>",
+            "name": "Spring Boot <classroom>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
