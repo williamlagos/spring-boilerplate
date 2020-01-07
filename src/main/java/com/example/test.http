@@ -61,3 +61,29 @@ Content-Type: application/json; charset=UTF-8
   "product": { "id": 1 },
   "customer": { "id": 1 }
 }
+
+###
+
+PUT http://localhost:5000/compras/1/ HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+{
+  "product": { "id": 1 },
+  "customer": { "id": 2 }
+}
+
+###
+
+GET http://localhost:5000/compras/ HTTP/1.1
+
+###
+
+GET http://localhost:5000/compras/1/ HTTP/1.1
+
+###
+
+DELETE http://localhost:5000/compras/1/ HTTP/1.1
+
+###
+
+POST http://localhost:5000/compras/finalizar HTTP/1.1
